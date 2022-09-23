@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Board extends JPanel implements Runnable{
+public class Board extends JPanel implements Runnable {
 
     private Thread thread;
     private Snake snake;
@@ -34,7 +34,7 @@ public class Board extends JPanel implements Runnable{
         super.paint(g);
 
         g.setColor(Color.RED);
-        //add last && remove first
+        // add last && remove first
         for (int i = 0; i < snake.getSize(); i++) {
             Point p = snake.getIndex(i);
             g.fillRect(p.x, p.y, 10, 10);
@@ -42,14 +42,13 @@ public class Board extends JPanel implements Runnable{
 
         g.setColor(Color.WHITE);
         Point foodPoint = food.getPoint();
-        g.fillRect(foodPoint.x, foodPoint.y,10,10);
+        g.fillRect(foodPoint.x, foodPoint.y, 10, 10);
 
         Point p = snake.getLast();
-        snake.newPoint(p.x, p.y,xAxis,yAxis);
+        snake.newPoint(p.x, p.y, xAxis, yAxis);
         snake.removeFirst();
         Toolkit.getDefaultToolkit().sync();
     }
-
 
     @Override
     public void run() {
@@ -97,7 +96,6 @@ public class Board extends JPanel implements Runnable{
 
                 food.generateFood();
             }
-
 
             if (sleep < 0) {
                 sleep = 2;
