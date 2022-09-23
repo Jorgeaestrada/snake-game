@@ -9,6 +9,10 @@ public class Board extends JPanel implements Runnable {
     private Snake snake;
     private static Food food;
 
+    private Color snakeColor;
+    private Color foodColor;
+    private Color boardBgColor;
+
     private int xAxis = 1;
     private int yAxis = 0;
 
@@ -19,10 +23,15 @@ public class Board extends JPanel implements Runnable {
     public Board() {
         snake = new Snake();
         food = new Food();
+
+        snakeColor = new Color(0, 136, 163);
+        foodColor = new Color(255, 64, 129);
+        boardBgColor = Color.WHITE;
+
         thread = new Thread(this);
         thread.start();
 
-        setBackground(Color.WHITE);
+        setBackground(boardBgColor);
         setFocusable(true);
         requestFocusInWindow();
         setPreferredSize(new Dimension(X_SIZE, Y_SIZE));
@@ -32,16 +41,15 @@ public class Board extends JPanel implements Runnable {
     public void paint(Graphics g) {
         super.paint(g);
 
-        // painting the snake
-        g.setColor(new Color(0, 136, 163));
-        // add last && remove first
+        // paint snake body
+        g.setColor(snakeColor);
         for (int i = 0; i < snake.getSnakeSize(); i++) {
             Point p = snake.getSnakeBodyIndex(i);
             g.fillRect(p.x, p.y, 10, 10);
         }
 
         // painting the food
-        g.setColor(new Color(255, 64, 129));
+        g.setColor(foodColor);
         Point foodPoint = food.getFoodCoordinates();
         g.fillRect(foodPoint.x, foodPoint.y, 10, 10);
 
