@@ -35,20 +35,20 @@ public class Board extends JPanel implements Runnable {
         // painting the snake
         g.setColor(new Color(0, 136, 163));
         // add last && remove first
-        for (int i = 0; i < snake.getSize(); i++) {
-            Point p = snake.getIndex(i);
+        for (int i = 0; i < snake.getSnakeSize(); i++) {
+            Point p = snake.getSnakeBodyIndex(i);
             g.fillRect(p.x, p.y, 10, 10);
         }
 
         // painting the food
         g.setColor(new Color(255, 64, 129));
-        Point foodPoint = food.getPoint();
+        Point foodPoint = food.getFoodCoordinates();
         g.fillRect(foodPoint.x, foodPoint.y, 10, 10);
 
         // some snake logic
-        Point p = snake.getLast();
-        snake.newPoint(p.x, p.y, xAxis, yAxis);
-        snake.removeFirst();
+        Point p = snake.getTail();
+        snake.addTail(p.x, p.y, xAxis, yAxis);
+        snake.removeHead();
         Toolkit.getDefaultToolkit().sync();
     }
 
@@ -92,8 +92,8 @@ public class Board extends JPanel implements Runnable {
             timeDifference = System.currentTimeMillis() - beforeTime;
             sleep = DELAY - timeDifference;
 
-            if (food.getPoint().equals(snake.getLast())) {
-                snake.addLast(food.getPoint());
+            if (food.getFoodCoordinates().equals(snake.getTail())) {
+                snake.addHead(food.getFoodCoordinates());
 
                 food.generateFood();
             }
