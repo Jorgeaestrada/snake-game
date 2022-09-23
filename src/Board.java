@@ -12,8 +12,8 @@ public class Board extends JPanel implements Runnable{
     private int xAxis = 1;
     private int yAxis = 0;
 
-    private static final int X_SIZE = 500;
-    private static final int Y_SIZE = 500;
+    private static final int X_SIZE = 1024;
+    private static final int Y_SIZE = 768;
     private final int DELAY = 75;
 
     public Board() {
