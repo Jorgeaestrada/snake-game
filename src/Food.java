@@ -16,7 +16,7 @@ public class Food {
 		point.setLocation(xPos, yPos);
 	}
 
-	public Point getPoint() {
+	public Point getFoodCoordinates () {
 		return point;
 	}
 }
