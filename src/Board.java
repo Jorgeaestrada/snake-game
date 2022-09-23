@@ -45,7 +45,7 @@ public class Board extends JPanel implements Runnable {
         Point foodPoint = food.getPoint();
         g.fillRect(foodPoint.x, foodPoint.y, 10, 10);
 
-        // painting the 
+        // some snake logic
         Point p = snake.getLast();
         snake.newPoint(p.x, p.y, xAxis, yAxis);
         snake.removeFirst();
