@@ -23,7 +23,7 @@ public class Board extends JPanel implements Runnable {
         thread = new Thread(this);
         thread.start();
 
-        setBackground(Color.BLACK);
+        setBackground(Color.WHITE);
         setFocusable(true);
         requestFocusInWindow();
         setPreferredSize(new Dimension(X_SIZE, Y_SIZE));
@@ -33,14 +33,14 @@ public class Board extends JPanel implements Runnable {
     public void paint(Graphics g) {
         super.paint(g);
 
-        g.setColor(Color.RED);
+        g.setColor(new Color(0, 136, 163));
         // add last && remove first
         for (int i = 0; i < snake.getSize(); i++) {
             Point p = snake.getIndex(i);
             g.fillRect(p.x, p.y, 10, 10);
         }
 
-        g.setColor(Color.WHITE);
+        g.setColor(new Color(255, 64, 129));
         Point foodPoint = food.getPoint();
         g.fillRect(foodPoint.x, foodPoint.y, 10, 10);
 
@@ -77,13 +77,11 @@ public class Board extends JPanel implements Runnable {
             }
 
             @Override
-            public void keyTyped(KeyEvent e) {
-
+            public void keyReleased(KeyEvent e) {
             }
 
             @Override
-            public void keyReleased(KeyEvent e) {
-            }
+            public void keyTyped(KeyEvent e) {}
         });
 
         while (true) {
