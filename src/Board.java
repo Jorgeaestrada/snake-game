@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class Interfaz extends JPanel implements Runnable{
+public class Board extends JPanel implements Runnable{
 
     private Thread thread;
     private Snake snake;
@@ -16,7 +16,7 @@ public class Interfaz extends JPanel implements Runnable{
     private static final int Y_SIZE = 500;
     private final int DELAY = 75;
 
-    public Interfaz() {
+    public Board() {
         snake = new Snake();
         food = new Food();
 

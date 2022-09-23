@@ -4,7 +4,7 @@ import java.awt.*;
 public class Main extends JFrame {
 
 	public Main () {
-		add(new Interfaz());
+		add(new Board());
 		setResizable(false);
 		pack();
 
