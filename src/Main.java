@@ -5,7 +5,7 @@ public class Main extends JFrame {
 
 	public Main () {
 		add(new Board());
-		setResizable(false);
+		setResizable(true);
 		pack();
 
 		setTitle("Snake V2.0");
