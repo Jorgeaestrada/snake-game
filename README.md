@@ -47,4 +47,4 @@ Technologies used in the project:
 
 ## Author
 
-Made with 💜 by [jorgeaestrada](https://linkedin.com/in/jorgearmandoestrada)
+Made with 💜 by [jorgearmandoestrada](https://linkedin.com/in/jorgearmandoestrada)
